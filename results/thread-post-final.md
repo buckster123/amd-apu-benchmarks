@@ -21,22 +21,23 @@
 | DeepSeek-R1-Qwen-7B | 7.62 B | 610 | **13** |
 | Meta-Llama-3.1-8B | 8.03 B | 557 | **13** |
 
-## Vulkan iGPU Results (llama.cpp, -ngl 999)
+## Vulkan iGPU Results (llama.cpp, RADV GFX1152, KHR_coopmat, -ngl 999)
 
 | Model | Params | Quant | pp512 | tg128 |
 |---|---|---|---:|---:|
-| SmolLM2-135M | 0.14 B | Q4_K_M | **3042** | 178 |
-| Llama-3.2-1B | 1.24 B | Q4_K_M | 661 | **73** |
-| Qwen3.5-4B | 3.50 B | Q4_K_M | 160 | 18 |
-| Phi-4-mini | 3.84 B | Q4_K_M | 200 | 23 |
-| Qwen2.5-7B | 7.62 B | Q4_K_M | 99 | 13 |
-| Mistral-7B | 7.25 B | Q4_K_M | 92 | 13 |
+| SmolLM2-135M-Instruct | 0.14 B | Q4_K_M | **3042** | **178** |
+| Llama-3.2-1B-Instruct | 1.24 B | Q4_K_M | 661 | **73** |
+| Phi-4-mini-instruct | 3.84 B | Q4_K_M | 200 | 23 |
+| Qwen3.5-4B-Instruct | 3.50 B | Q4_K_M | 160 | 18 |
+| ZAYA1-8B | 8.84 B total / 760M active | Q4_K_M | **315** | **25** |
+| Mistral-7B-Instruct | 7.25 B | Q4_K_M | 92 | **13** |
+| Qwen2.5-7B-Instruct | 7.62 B | Q4_K_M | 99 | 13 |
 | DeepSeek-R1-Qwen-7B | 7.62 B | Q4_K_M | 99 | 13 |
 | Meta-Llama-3.1-8B | 8.03 B | Q4_K_M | 91 | 13 |
-| Qwen3.5-9B | 8.95 B | Q4_K_M | 88 | **11** |
+| Qwen3.5-9B-Instruct | 8.95 B | Q4_K_M | 88 | **11** |
 | Carnice-9B | 8.95 B | Q6_K | 94 | 10 |
-
-## CPU Results (6 threads, -ngl 0)
+| gemma-3-12b-it | 11.77 B | Q4_K_M | 61 | 8 |
+| Mistral-Nemo-12B | 12.25 B | Q4_K_M | 64 | 8 |
 
 | Model | Params | Quant | pp512 | tg128 |
 |---|---|---|---:|---:|
