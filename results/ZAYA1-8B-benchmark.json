@@ -1,1 +1,15 @@
-{"model":"ZAYA1-8B","quant":"Q4_K_M","params":8.84,"vulkan_pp":314.77,"vulkan_tg":25.17,"cpu_pp":241.72,"cpu_tg":14.53}
+{
+  "model": "ZAYA1-8B",
+  "quant": "Q4_K_M",
+  "params_total": 8.84,
+  "params_active": 0.76,
+  "vulkan_pp512": 314.77,
+  "vulkan_tg128": 25.17,
+  "vulkan_pp2048": 311.72,
+  "vulkan_tg2048": 25.68,
+  "vulkan_pp4096": 294.71,
+  "vulkan_tg4096": 25.38,
+  "cpu_pp512": 241.72,
+  "cpu_tg128": 14.53,
+  "notes": "Built from llama.cpp PR #23112 (draft). llama-bench works. llama-cli/llama-server generation produces empty tokens (PR bug). Context scaling is flat: only 6% prefill drop from 512 to 4096 tokens."
+}
