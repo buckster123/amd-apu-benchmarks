@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <defs>
+    <style>
+      text { font-family: system-ui, -apple-system, sans-serif; }
+      .title { fill: #e2e8f0; font-size: 18px; font-weight: 600; }
+      .subtitle { fill: #94a3b8; font-size: 11px; }
+      .axis-label { fill: #94a3b8; font-size: 10px; }
+      .bar-label { fill: #e2e8f0; font-size: 9px; font-weight: 500; }
+      .legend-text { fill: #cbd5e1; font-size: 11px; }
+      .grid { stroke: #1e293b; stroke-width: 1; }
+      .bar-npu { fill: #f59e0b; }
+      .bar-vulkan { fill: #3b82f6; }
+      .bar-cpu { fill: #10b981; }
+    </style>
+  </defs>
+  <rect width="900" height="520" fill="#0f172a" rx="8"/>
+  
+  <!-- Title -->
+  <text x="450" y="32" text-anchor="middle" class="title">Krackan Point: Decode Throughput by Backend</text>
+  <text x="450" y="50" text-anchor="middle" class="subtitle">128-token generation, batch=1, 3-run average · Ryzen AI 5 340 · 22GB LPDDR5</text>
+  
+  <!-- Legend -->
+  <g transform="translate(320, 70)">
+    <rect x="0" y="0" width="12" height="12" rx="2" class="bar-npu"/>
+    <text x="18" y="10" class="legend-text">NPU (XDNA 2, 48 tiles)</text>
+    <rect x="160" y="0" width="12" height="12" rx="2" class="bar-vulkan"/>
+    <text x="178" y="10" class="legend-text">Vulkan iGPU (RADV GFX1152)</text>
+    <rect x="340" y="0" width="12" height="12" rx="2" class="bar-cpu"/>
+    <text x="358" y="10" class="legend-text">CPU (6c Zen 5)</text>
+  </g>
+  
+  <!-- Chart area -->
+  <g transform="translate(80, 110)">
+    <!-- Y-axis grid lines -->
+    <line x1="0" y1="300" x2="760" y2="300" class="grid"/>
+    <line x1="0" y1="250" x2="760" y2="250" class="grid"/>
+    <line x1="0" y1="200" x2="760" y2="200" class="grid"/>
+    <line x1="0" y1="150" x2="760" y2="150" class="grid"/>
+    <line x1="0" y1="100" x2="760" y2="100" class="grid"/>
+    <line x1="0" y1="50" x2="760" y2="50" class="grid"/>
+    <line x1="0" y1="0" x2="760" y2="0" class="grid"/>
+    
+    <!-- Y-axis labels (tok/s) -->
+    <text x="-10" y="304" text-anchor="end" class="axis-label">0</text>
+    <text x="-10" y="254" text-anchor="end" class="axis-label">25</text>
+    <text x="-10" y="204" text-anchor="end" class="axis-label">50</text>
+    <text x="-10" y="154" text-anchor="end" class="axis-label">75</text>
+    <text x="-10" y="104" text-anchor="end" class="axis-label">100</text>
+    <text x="-10" y="54" text-anchor="end" class="axis-label">125</text>
+    <text x="-10" y="4" text-anchor="end" class="axis-label">150</text>
+    <text x="-40" y="150" text-anchor="middle" class="axis-label" transform="rotate(-90 -40 150)">Decode tok/s</text>
+    
+    <!-- Bars: Llama-3.2-1B (1.24B) -->
+    <g transform="translate(30, 0)">
+      <rect x="0" y="47" width="22" height="253" rx="2" class="bar-npu"/>
+      <rect x="26" y="120" width="22" height="180" rx="2" class="bar-vulkan" opacity="0.3"/>
+      <rect x="52" y="120" width="22" height="180" rx="2" class="bar-cpu" opacity="0.3"/>
+      <text x="37" y="340" text-anchor="middle" class="bar-label">1.2B</text>
+      <text x="11" y="42" text-anchor="middle" class="bar-label">64.6</text>
+    </g>
+    
+    <!-- Bars: Qwen2.5-3B (3.09B) -->
+    <g transform="translate(140, 0)">
+      <rect x="0" y="176" width="22" height="124" rx="2" class="bar-npu"/>
+      <rect x="26" y="176" width="22" height="124" rx="2" class="bar-vulkan" opacity="0.3"/>
+      <rect x="52" y="176" width="22" height="124" rx="2" class="bar-cpu" opacity="0.3"/>
+      <text x="37" y="340" text-anchor="middle" class="bar-label">3.1B</text>
+      <text x="11" y="171" text-anchor="middle" class="bar-label">27.0</text>
+    </g>
+    
+    <!-- Bars: Phi-4-mini (3.84B) -->
+    <g transform="translate(250, 0)">
+      <rect x="0" y="198" width="22" height="102" rx="2" class="bar-npu"/>
+      <rect x="26" y="198" width="22" height="102" rx="2" class="bar-vulkan" opacity="0.3"/>
+      <rect x="52" y="198" width="22" height="102" rx="2" class="bar-cpu" opacity="0.3"/>
+      <text x="37" y="340" text-anchor="middle" class="bar-label">3.8B</text>
+      <text x="11" y="193" text-anchor="middle" class="bar-label">22.6</text>
+    </g>
+    
+    <!-- Bars: gemma-3-4b (4.30B) -->
+    <g transform="translate(360, 0)">
+      <rect x="0" y="231" width="22" height="69" rx="2" class="bar-npu"/>
+      <rect x="26" y="231" width="22" height="69" rx="2" class="bar-vulkan" opacity="0.3"/>
+      <rect x="52" y="231" width="22" height="69" rx="2" class="bar-cpu" opacity="0.3"/>
+      <text x="37" y="340" text-anchor="middle" class="bar-label">4.3B</text>
+      <text x="11" y="226" text-anchor="middle" class="bar-label">17.2</text>
+    </g>
+    
+    <!-- Bars: Qwen2.5-7B (7.62B) -->
+    <g transform="translate(470, 0)">
+      <rect x="0" y="238" width="22" height="62" rx="2" class="bar-npu"/>
+      <rect x="26" y="241" width="22" height="59" rx="2" class="bar-vulkan"/>
+      <rect x="52" y="241" width="22" height="59" rx="2" class="bar-cpu" opacity="0.3"/>
+      <text x="37" y="340" text-anchor="middle" class="bar-label">7.6B</text>
+      <text x="11" y="233" text-anchor="middle" class="bar-label">13.4</text>
+      <text x="37" y="233" text-anchor="middle" class="bar-label" fill="#93c5fd">12.9</text>
+    </g>
+    
+    <!-- Bars: Qwen3.5-9B (8.95B) -->
+    <g transform="translate(580, 0)">
+      <rect x="0" y="247" width="22" height="53" rx="2" class="bar-npu" opacity="0.3"/>
+      <rect x="26" y="247" width="22" height="53" rx="2" class="bar-vulkan"/>
+      <rect x="52" y="247" width="22" height="53" rx="2" class="bar-cpu" opacity="0.3"/>
+      <text x="37" y="340" text-anchor="middle" class="bar-label">8.9B</text>
+      <text x="37" y="242" text-anchor="middle" class="bar-label" fill="#93c5fd">11.3</text>
+    </g>
+    
+    <!-- Bars: Carnice-9B (8.95B, Q6_K) -->
+    <g transform="translate(690, 0)">
+      <rect x="0" y="247" width="22" height="53" rx="2" class="bar-npu" opacity="0.3"/>
+      <rect x="26" y="259" width="22" height="41" rx="2" class="bar-vulkan"/>
+      <rect x="52" y="259" width="22" height="41" rx="2" class="bar-cpu" opacity="0.3"/>
+      <text x="37" y="340" text-anchor="middle" class="bar-label">9B Q6</text>
+      <text x="37" y="254" text-anchor="middle" class="bar-label" fill="#93c5fd">9.5</text>
+    </g>
+  </g>
+  
+  <!-- Footer -->
+  <text x="450" y="490" text-anchor="middle" class="subtitle">Solid bars = measured · Faded bars = not yet tested · NPU data from Apr 2026 sweep · Vulkan/CPU in progress</text>
+</svg>
